@@ -1,0 +1,22 @@
+<html>
+<form>
+    <!-- MAX_FILE_SIZE (maximum file size in bytes) must precede the file input field used to upload the QR code image -->
+<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+<div>
+<!-- The "name" of the input field has to be "file" as it is the name of the POST parameter -->
+Choose QR code image to read/scan: <input id="reader" name="onefile" type="file" capture="camera"/>
+<button class="btn" onclick="urltrans()">button
+</button>
+</div>
+</form>
+<form enctype="multipart/form-data" action="http://api.qrserver.com/v1/read-qr-code/" method="POST">
+    <input type="url" name="file" id="url">
+<input type="submit" value="Read QR code" />
+</form>
+<script>
+    urltrans = function(){ 
+        document.getElementById("url")=btoa(document.getElementById("reader"));
+        alert(document.getElementById("reader"));
+    }
+</script>
+</html>
