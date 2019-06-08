@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+    <script src="../js/CreateBagCart.js"></script>
+
+    <title>TABAS - Crear BagCart</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-light" ng-app="myApp" ng-controller="appController">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #298292">
+        <a class="navbar-brand" href="#"><span style="color: #000000">TA</span>BAS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="location.href = 'Administrator.html'">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="container" style="margin-top: 1%">
+
+        <div class="row-md">
+            <form class="needs-validation" ng-submit="crearBagCart(bagCart, bagCart)" validate>
+                <div class="py-5 text-center">
+                    <h2>BagCart</h2>
+                    <p class="lead">Llene todos los datos necesarios.</p>
+                </div>
+
+                <!--Columna del vuelo General-->
+                <div class="col-md" style="margin-top: 0%">
+
+                    <div class="form-group">
+                        <label for="sel1">Vuelo:</label>
+                        <select class="form-control" id="sel1" ng-model="bagCart.FLIGHT_ID"
+                            placeholder="Vuelo al que pertenece" ng-options="flight.FLIGHT_ID for flight in flights" required>
+                        </select>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            El VUELO es necesario.
+                        </div>
+                    </div> 
+                    <div class="mb-3">
+                        <label for="origen">Capacidad:</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" ng-model="bagCart.CAPACITY" placeholder="Capacidad"
+                                required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                La capacidad es necesaria.
+                            </div>
+                        </div>
+                    </div>                  
+                    <div class="form-group">
+                        <label for="sel1">Marca:</label>
+                        <select class="form-control" id="sel1" ng-model="bagCart.BRAND_ID"
+                            placeholder="Marca" ng-options="brand.BRAND_NAME for brand in brands" required>
+                        </select>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            La marca es necesaria.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="origen">Modelo:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="bagCart.MODEL" placeholder="Modelo"
+                                required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                El modelo es necesario.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button class="btn btn-warning btn-lg btn-block" type="submit" style="margin-right:-100%">
+                        Crear BagCart</button>
+                </div>
+
+            </form>
+        </div>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2019 TABAS</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

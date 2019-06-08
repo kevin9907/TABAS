@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <title>TABAS - LogIn</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+
+    <!--  JS a usar para las acciones de Apertura/CheckIn    -->
+    <script src="../js/Login.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+    <!-----------------------Para poner de fondo de pantalla una imagen------------------------------>
+    <style>
+        body {
+            background-image: url("../recursos/fondo.jpg");
+        }
+    </style>
+
+
+</head>
+
+<body class="text-center" ng-app="myApp" ng-controller="appController">
+    <div class="row-md">
+
+        <form class="form-signin">
+
+            <div class="col-md-6" style="margin-top: 0%; margin-LEFT: 23%">
+
+                <h1 class="h3 mb-3 font-weight-normal" style="font-variant: small-caps; font-size: 60px">TABAS</h1>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Username"
+                    ng-model="employee.EmployeeID" required autofocus>
+
+                <input style="margin-top: 1%" type="password" id="inputPassword" class="form-control"
+                    placeholder="Password" ng-model="employee.Passwrd" required>
+
+                <button style="margin-top: 1%" class="btn btn-warning btn-lg btn-block" ng-click="login(employee)"
+                    style="margin-right:-100%">
+                    LogIn</button>
+                <!--<a href="register.html">SignIn</a>-->
+            </div>
+        </form>
+    </div>
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+
+</html>

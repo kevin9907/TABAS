@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+    <script src="../js/CreateSuitcase.js"></script>
+
+    <title>TABAS - Crear Maleta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-light" ng-app="myApp" ng-controller="appController">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #298292">
+        <a class="navbar-brand" href="#"><span style="color: #000000">TA</span>BAS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="location.href = 'Administrator.html'">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="container" style="margin-top: 1%">
+
+        <div class="row-md">
+            <form class="needs-validation" ng-submit="createSuitcase(suitcase)" validate>
+                <div class="py-5 text-center">
+                    <h2>Maleta</h2>
+                    <p class="lead">Llene todos los datos necesarios.</p>
+                </div>
+
+                <!--Columna del vuelo General-->
+                <div class="col-md" style="margin-top: 0%">
+
+
+                    <div class="form-group">
+                        <label for="sel1">Usuario:</label>
+                        <select class="form-control" id="sel1" ng-model="suitcase.CLIENT_ID" placeholder="Usuario"
+                            ng-options="user.ID for user in users" required>
+                        </select>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            El usuario es necesario.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="origen">Color:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="suitcase.COLOUR" placeholder="Color"
+                                required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                El color es necesario.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="origen">Peso:</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" ng-model="suitcase.WEIGHT" placeholder="Peso"
+                                required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                El peso es necesario.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">Vuelo:</label>
+                        <select class="form-control" id="sel1" ng-model="fly.PLANE_ID" placeholder="Vuelo"
+                            ng-options="flight.FLIGHT_ID for flight in flights" ng-change="loadFlights(fly)" required>
+                        </select>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            El usuario es necesario.
+                        </div>
+                    </div>
+
+                    <div ng-show="showFlights">
+
+                        <div class="form-group">
+                            <label for="sel1">BagCart:</label>
+                            <select class="form-control" id="sel1" ng-model="suitcase.BAGCART_ID" placeholder="BagCart"
+                                ng-options="bagCart.BAGCART_ID for bagCart in bagCarts" ng-change="loadPlanes(fly)"
+                                required>
+                            </select>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                El usuario es necesario.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="showPlanes">
+                        <div class="row-md-3">
+                            <label for="sel1">Plane:</label>
+                            <label for="sel1">{{planes.PLANE_ID}}</label>
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-warning btn-lg btn-block" type="submit" style="margin-right:-100%">
+                        Crear Maleta</button>
+                </div>
+
+            </form>
+        </div>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2019 TABAS</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
